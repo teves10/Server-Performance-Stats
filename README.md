@@ -70,3 +70,6 @@ ps -eo pid,comm,%cpu,%mem --sort=-%cpu | head -n 6
 
 
 Lists top 5 CPU-consuming processes (head -n 6 includes header).
+
+
+This project is part of [roadmap.sh](https://roadmap.sh/projects/server-stats) DevOps projects.
