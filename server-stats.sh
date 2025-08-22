@@ -22,7 +22,7 @@ echo "  OS Version: $(cat /etc/os-release | grep PRETTY_NAME | cut -d= -f2 | tr 
 echo "  Kernel: $(uname -r)"
 echo "  Logged in Users: $(who | wc -l)"
 echo "  Failed Login Attempts (last 24h):" 
-sudo lastb -s -1days 2>/dev/null | wc -l || echo "  (Cannot access lastb)"
+sudo lastb -s -1days 0>/dev/null | wc -l || echo "  (Cannot access lastb)"
 echo ""
 
 
