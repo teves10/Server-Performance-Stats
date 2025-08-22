@@ -21,7 +21,8 @@ echo "  Load Average: $(uptime | awk -F'load average:' '{ print $2 }')"
 echo "  OS Version: $(cat /etc/os-release | grep PRETTY_NAME | cut -d= -f2 | tr -d '\"')"
 echo "  Kernel: $(uname -r)"
 echo "  Logged in Users: $(who | wc -l)"
-echo "  Failed Login Attempts (last 24h):" sudo lastb -s -1days 1>/dev/null | wc -l || echo "  (Cannot access lastb)"
+echo "  Failed Login Attempts (last 24h):" 
+sudo lastb -s -1days 1>/dev/null | wc -l || echo "  (Cannot access lastb)"
 echo ""
 
 
