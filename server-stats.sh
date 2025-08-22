@@ -29,41 +29,41 @@ echo ""
 title " CPU Usage:"
 CPU_CORES=$(nproc) 
 CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print 100 - $8 "%"}')  
-echo "Total CPU cores: $CPU_CORES"
-echo "CPU usage: $CPU_USAGE"
+echo "  Total CPU cores: $CPU_CORES"
+echo "  CPU usage: $CPU_USAGE"
 echo ""
 
 
-title "Memory Usage:"
+title "  Memory Usage:"
 MEM_TOTAL=$(free -h | awk '/^Mem:/ {print $2}')
 MEM_USED=$(free -h | awk '/^Mem:/ {print $3}')
 MEM_FREE=$(free -h | awk '/^Mem:/ {print $4}')
 MEM_USED_PERCENT=$(free | awk '/^Mem:/ {printf("%.2f%%", $3/$2*100)}')
 MEM_FREE_PERCENT=$(free | awk '/^Mem:/ {printf("%.2f%%", $4/$2*100)}')
-echo "Total memory: $MEM_TOTAL"
-echo "Used memory: $MEM_USED ($MEM_USED_PERCENT)"
-echo "Free memory: $MEM_FREE ($MEM_FREE_PERCENT)"
+echo "  Total memory: $MEM_TOTAL"
+echo "  Used memory: $MEM_USED ($MEM_USED_PERCENT)"
+echo "  Free memory: $MEM_FREE ($MEM_FREE_PERCENT)"
 echo ""
 
 
-title "Disk Usage:"
+title "  Disk Usage:"
 DISK_TOTAL=$(df -h / | awk 'NR==2 {print $2}')
 DISK_USED=$(df -h / | awk 'NR==2 {print $3}')
 DISK_AVAIL=$(df -h / | awk 'NR==2 {print $4}')
 DISK_USED_PERCENT=$(df -h / | awk 'NR==2 {print $5}')
-echo "Total disk space: $DISK_TOTAL"
-echo "Used disk space: $DISK_USED ($DISK_USED_PERCENT)"
-echo "Available disk space: $DISK_AVAIL"
+echo "  Total disk space: $DISK_TOTAL"
+echo "  Used disk space: $DISK_USED ($DISK_USED_PERCENT)"
+echo "  Available disk space: $DISK_AVAIL"
 echo ""
 
 
 
-title "Top 5 Processes by CPU Usage:"
+title "  Top 5 Processes by CPU Usage:"
 ps -eo pid,comm,%cpu,%mem --sort=-%cpu | head -n 6
 echo ""
 
 
-title "Top 5 Processes by Memory Usage:"
+title "  Top 5 Processes by Memory Usage:"
 ps -eo pid,comm,%cpu,%mem --sort=-%mem | head -n 6
 echo ""
 
